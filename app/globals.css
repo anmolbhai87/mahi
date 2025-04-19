@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 5, 10, 48;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
+  overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+}
+
+/* Cloud styles */
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.cloud-1 {
+  width: 300px;
+  height: 100px;
+  top: 15%;
+  left: 10%;
+  animation: float-cloud 30s linear infinite;
+  opacity: 0.3;
+}
+
+.cloud-2 {
+  width: 200px;
+  height: 80px;
+  top: 25%;
+  left: 60%;
+  animation: float-cloud 25s linear infinite;
+  animation-delay: -5s;
+  opacity: 0.2;
+}
+
+.cloud-3 {
+  width: 250px;
+  height: 90px;
+  top: 10%;
+  left: 30%;
+  animation: float-cloud 35s linear infinite;
+  animation-delay: -10s;
+  opacity: 0.25;
+}
+
+.cloud-4 {
+  width: 180px;
+  height: 70px;
+  top: 30%;
+  left: 80%;
+  animation: float-cloud 28s linear infinite;
+  animation-delay: -15s;
+  opacity: 0.2;
+}
+
+.cloud-5 {
+  width: 220px;
+  height: 85px;
+  top: 5%;
+  left: 50%;
+  animation: float-cloud 32s linear infinite;
+  animation-delay: -8s;
+  opacity: 0.3;
+}
+
+@keyframes float-cloud {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw + 300px));
+  }
+}
+
+/* Enhance the shooting star and cloud effects */
+
+/* Elegant shooting star */
+.elegant-shooting-star {
+  position: absolute;
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0));
+  transform: rotate(-45deg);
+  animation: elegant-shooting 6s ease-out infinite;
+  border-radius: 100px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
+  opacity: 0;
+}
+
+@keyframes elegant-shooting {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-45deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(500px) translateY(500px) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* Add a cosmic dust effect */
+.cosmic-dust {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(1px 1px at 25% 25%, rgba(255, 255, 255, 0.2) 50%, transparent 100%),
+    radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.2) 50%, transparent 100%),
+    radial-gradient(1px 1px at 75% 75%, rgba(255, 255, 255, 0.2) 50%, transparent 100%),
+    radial-gradient(2px 2px at 10% 90%, rgba(255, 255, 255, 0.2) 50%, transparent 100%),
+    radial-gradient(2px 2px at 90% 10%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+  background-repeat: repeat;
+  background-size: 200px 200px, 150px 150px, 100px 100px, 200px 200px, 150px 150px;
+  animation: cosmic-drift 100s linear infinite;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+@keyframes cosmic-drift {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 200px 200px, 150px 150px, 100px 100px, 200px 200px, 150px 150px;
+  }
+}
+
+.cake {
+  position: relative;
+  width: 100px;
+  height: 60px;
+  background: linear-gradient(to right, #e9d5ff, #c084fc);
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 0 20px rgba(233, 213, 255, 0.5);
+}
+
+.cake:before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 40px;
+  background: linear-gradient(to right, #f472b6, #ec4899);
+  border-radius: 10px 10px 0 0;
+  top: -20px;
+  left: -10px;
+}
+
+.cake:after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 30px;
+  background: linear-gradient(to right, #a855f7, #d946ef);
+  border-radius: 10px 10px 0 0;
+  top: -40px;
+  left: -20px;
+}
+
+.candle {
+  position: absolute;
+  width: 8px;
+  height: 30px;
+  background: linear-gradient(to top, #fef3c7, #fbbf24);
+  top: -65px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 4px;
+}
+
+.flame {
+  position: absolute;
+  width: 15px;
+  height: 30px;
+  background: radial-gradient(ellipse at center, #fef3c7 0%, #f59e0b 50%, #d97706 100%);
+  border-radius: 50% 50% 20% 20%;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: flicker 1s ease-in-out infinite alternate;
+  filter: blur(1px) drop-shadow(0 0 10px rgba(245, 158, 11, 0.8));
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(0.9);
+    opacity: 0.8;
+  }
+}
+
+/* Tulip garden styles */
+.tulip-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+
+.tulip {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  transform-origin: center bottom;
+  animation: grow-tulip 3s ease-out forwards, sway-tulip 6s ease-in-out infinite alternate;
+}
+
+@keyframes grow-tulip {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes sway-tulip {
+  0% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(3deg);
+  }
+}
+
+.tulip-flower {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 0 0;
+  z-index: 2;
+  animation: bloom-tulip 2s ease-out forwards;
+  transform-origin: bottom center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes bloom-tulip {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 40px;
+    opacity: 1;
+  }
+}
+
+.tulip-stem {
+  position: absolute;
+  width: 4px;
+  height: 60px;
+  background: linear-gradient(to bottom, #65a30d, #4d7c0f);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.tulip-leaf {
+  position: absolute;
+  width: 20px;
+  height: 10px;
+  background: linear-gradient(to right, #65a30d, #4d7c0f);
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(0%) rotate(-10deg);
+  border-radius: 50% 50% 0 50%;
+  z-index: 0;
+}
+
+.grass-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+}
+
+.grass-blade {
+  position: absolute;
+  width: 4px;
+  background: linear-gradient(to top, #166534, #65a30d);
+  bottom: 0;
+  border-radius: 10px 10px 0 0;
+  transform-origin: bottom center;
+  animation: sway-grass 4s ease-in-out infinite alternate;
+}
+
+@keyframes sway-grass {
+  0% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
